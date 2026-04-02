@@ -67,20 +67,31 @@ useEffect(() => {
 
 
   const pickImage = async (setFunc) => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaType.Images,
-        allowsEditing: true,
-        quality: 1,
-      });
-
-      if (!result.canceled) {
-        setFunc(result.assets[0].uri);
-      }
-    } catch (err) {
-      alert( "Could not open image picker");
+  try {
+    // 1. Ask for permission first (Required for some browser/Expo versions)
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    
+    if (status !== 'granted') {
+      alert("Permission to access camera roll is required!");
+      return;
     }
-  };
+
+    // 2. Launch the picker
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ['images'], // Use the new array syntax for SDK 50+
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setFunc(result.assets[0].uri);
+    }
+  } catch (err) {
+    console.error(err); // Log the actual error to the console
+    alert("Could not open image picker");
+  }
+};
 
   const pickPanAadharFiles = async () => {
     try {
