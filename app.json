@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "Astro Astrologier",
+    "slug": "astromobileapp",
+    "notification": {
+      "icon": "./assets/splashscreen_logo.png",
+      "color": "#FFFFFF"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "updates": {
+      "enabled": false,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0
+    },
+    "android": {
+      "package": "com.tis.astroAstrologier",
+      "useNextNotificationsApi": true,
+      "googleServicesFile": "./google-services.json",
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE"
+      ],
+      "metaData": [
+        {
+          "android:name": "com.google.firebase.messaging.default_notification_color",
+          "android:resource": "@color/notification_icon_color",
+          "tools:replace": "android:resource"
+        }
+      ]
+    },
+    "splash": {
+      "image": "./assets/splashscreen_logo.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e4bd79a4-3f1e-4f89-953b-608e8d91ef79"
+      }
+    },
+    "owner": "techinformaticsolutions",
+    "plugins": [
+      "expo-video",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/splashscreen_logo.png",
+          "color": "#FFFFFF"
+        }
+      ],
+    ]
+  }
+}

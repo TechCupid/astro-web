@@ -1,0 +1,11 @@
+diff --git a/node_modules/abort-controller/polyfill.mjs b/node_modules/abort-controller/polyfill.mjs
+index 0602a64..92cc3b3 100644
+--- a/node_modules/abort-controller/polyfill.mjs
++++ b/node_modules/abort-controller/polyfill.mjs
+@@ -1,5 +1,5 @@
+ /*globals self, window */
+-import * as ac from "./dist/abort-controller"
++import * as ac from "./dist/abort-controller.js"
+ 
+ /*eslint-disable @mysticatea/prettier */
+ const g =

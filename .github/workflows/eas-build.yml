@@ -1,0 +1,42 @@
+name: EAS Android Build
+
+on:
+  push:                       # Runs on every commit push
+    branches:
+      - AstroAPPWithDeviceID
+  schedule:
+    - cron: "30 16 * * 5"     # Friday 10:00 PM IST (16:30 UTC)
+  workflow_dispatch:          # Allow manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: AstroAPPWithDeviceID
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: EAS Build (Android AAB Production)
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas build --platform android --profile production --non-interactive --local
+
+      - name: Upload AAB as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: /home/runner/work/astroMobileUI/astroMobileUI/build-*.aab  # Adjust this path to match where your APK is saved
+          retention-days: 4

@@ -1,0 +1,23 @@
+{
+  "project_info": {
+    "project_number": "811684227823",
+    "project_id": "tisastro-3e36e",
+    "storage_bucket": "tisastro-3e36e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811684227823:android:e0ab94860f3086a256891a",
+        "android_client_info": {
+          "package_name": "com.tis.astroAstrologier"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq48rHYJ5uBozvMQIYBKecvCR4Lp1YAcA"
+        }
+      ]
+    }
+  ],
+  "configuration_version": "1"
+}
