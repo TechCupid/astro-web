@@ -5,9 +5,8 @@ const ApiContext = createContext();
 
 export const ApiProvider = ({ children }) => {
 
-  const [API_BASE_URL, setApiBaseUrlState] =
-    useState('http://10.90.61.118:8090/astroapi');
-
+ // const [API_BASE_URL, setApiBaseUrlState] =useState('http://10.90.61.118:8090/astroapi');
+const [API_BASE_URL,setApiBaseUrl] = useState('https://techinformatic.com/astroapi');
   useEffect(() => {
     setApiBaseUrl(API_BASE_URL);
   }, [API_BASE_URL]);
